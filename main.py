@@ -16,6 +16,7 @@ DEFAULT_TARGET = Path("/output/entry.txt")
 
 
 def main(argv):
+    assert len(ENTRY_TEXT) <= 140, "entry exceeds the 140 character limit"
     target = Path(argv[1]) if len(argv) > 1 else DEFAULT_TARGET
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(ENTRY_TEXT + "\n", encoding="utf-8")
